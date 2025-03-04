@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://172.27.102.33:54315/serpcmsdevdb  # 실제 DB 이름으로 변경
+    username: serpcmsdev
+    password: serpcmsdev123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # 자동 업데이트를 비활성화하고, 검증만 수행
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  mybatis:
+    config-location: classpath:mybatis-config.xml
+    mapper-locations: classpath:com.mybatis.mapper/*  # 매퍼 XML 파일 경로
+    type-aliases-package: com.mybatis.entity  # MyBatis 엔티티 클래스 경로
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # SQL 로그 출력
+      map-underscore-to-camel-case: true  # ✅ 올바른 형식
+      return-instance-for-empty-row : true
+
+  logging:
+    level:
+      org.mybatis: DEBUG
+
+server:
+  port: 8080  # 기본 포트
