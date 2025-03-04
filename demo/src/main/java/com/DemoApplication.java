@@ -11,6 +11,7 @@ import org.mybatis.spring.annotation.MapperScan;
 @EnableJpaRepositories("com.example.repository")  // JPA Repository °æ·Î
 public class DemoApplication {
     public static void main(String[] args) {
+    	
         SpringApplication.run(DemoApplication.class, args);
     }
 }
